@@ -1,0 +1,64 @@
+*{
+    font-size: large;
+}
+body {
+    background-image: url("../Images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+h1{
+    font-size: larger;
+    text-align: center;
+}
+#login {
+    background: #d4d0dd;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35%;
+    padding: 2%;
+}
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-family: "fontawesome";
+}
+::placeholder{
+    color:green;
+}
+
+button {
+    border: none;
+    color: white;
+    height:6vh;
+    width:100%;
+    background-color: rgb(20, 148, 105);
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+button:hover {
+    transition: 0.1s;
+    font-size: 120%;
+    opacity: 0.8;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+.error-message{
+    color:red;
+}
+.backend-error-message{
+    color: red;
+    display: block;
+}
+.message{
+    color:green;
+}
+label{
+    font-weight: bold;
+}

@@ -1,0 +1,86 @@
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background: linear-gradient(
+                to right bottom, #65dfc9, #313bc4);
+        }
+        
+        nav {
+            font-family: 'Comic Sans MS';
+            overflow: hidden;
+            background-color: #5A7A74;
+            width: 100%;
+            height: 9.8vh;
+        }
+        
+        nav img {
+            height: 9.8vh;
+            width: auto;
+        }
+        
+        nav a {
+            float: right;
+            color: #fff;
+            padding: 1.5% 2% 2% 2%;
+            text-decoration: none;
+        }
+        
+        nav a:hover {
+            background-color: #3B544F;
+            font-size: 120%;
+            transition: 0.5s;
+        }
+        
+        .main-text {
+            height: 80.4vh;
+        }
+        
+        .footer {
+            height: 9.8vh;
+            background-color: #5A7A74;
+            margin-bottom: 0px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            align-items: center;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        i {
+            color: red;
+            font-size: 3rem;
+        }
+        
+        input[type=radio] {
+            display: none;
+        }
+        
+        .middle {
+            height: 80.4vh;
+            background: linear-gradient(
+                to right top, #65dfc9, #313bc4);
+        }
+        
+        .main-message {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-self: center;
+            flex-direction: column;
+        }
+        
+        .icons {
+            display: grid;
+            justify-content: space-between;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        h2{
+            margin-left: 15%;
+            margin-right: 15%;
+            
+        }

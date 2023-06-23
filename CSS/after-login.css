@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap";
+}
+
+nav {
+    font-family: 'Comic Sans MS';
+    background-color: #5A7A74;
+    width: 100%;
+    height: 9.8vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav img {
+    height: 9.8vh;
+    width: auto;
+}
+
+body {
+    background-image: url("../Images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
+
+.main-div {
+    overflow: auto;
+    height: auto;
+    width: auto;
+    border: 5px solid #55cbae;
+    border-radius: 10px;
+    margin-top: 2%;
+}
+
+.center-main-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: auto;
+}
+
+.text {
+    text-align: center;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    color: aquamarine;
+    background-color: rebeccapurple;
+    margin-right: 10%;
+    margin-bottom: 10%;
+    font-size: 25px;
+}
+
+.car-row {
+    height: 10vh;
+    width: 40vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    padding: 4px 0 0 4px;
+}
+
+.bike-row {
+    height: 8vh;
+    width: 40vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    padding: 4px 0 0 4px;
+}
+
+.bike {
+    background-color: #14ed59;
+    border-radius: 10px;
+    height: 90%;
+    width: 90%;
+    cursor: pointer;
+    text-align: center;
+}
+
+.bike-booked {
+    background-color: red;
+    border-radius: 10px;
+    height: 90%;
+    width: 90%;
+    /* cursor: none; */
+    text-align: center;
+}
+
+.car {
+    background-color: #14ed59;
+    border-radius: 10px;
+    height: 90%;
+    width: 90%;
+    cursor: pointer;
+    text-align: center;
+}
+
+.car-booked {
+    background-color: red;
+    border-radius: 10px;
+    height: 90%;
+    width: 90%;
+    cursor: pointer;
+    text-align: center;
+}
+
+.road {
+    height: 6vh;
+    background-color: black;
+    margin-left: 1%;
+    margin-right: 1%;
+    background: repeating-linear-gradient( 45deg, black, black 10px, white 10px, white 20px);
+}
+
+.bike:hover {
+    transform: scale(1.1);
+    transition: .5ms;
+}
+
+.car:hover {
+    transform: scale(1.1);
+    transition: .5ms;
+}
+
+li {
+    color: black;
+}
+
+ul {
+    list-style: none;
+    margin-right: 2%;
+    font-size: large;
+}
+
+#overflow {
+    display: block;
+    overflow: hidden;
+}
+
+#overflow:hover {
+    overflow: visible;
+    z-index: 6;
+}
+
+ul li {
+    width: 150px;
+    height: 40px;
+    background-color: #5A7A74;
+    text-align: center;
+    line-height: 40px;
+    font-size: 18px;
+    margin-right: 2px;
+    position: relative;
+    z-index: 2;
+}
+
+ul li:hover ul li:hover {
+    background-color: black;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.success_msg {
+    color: greenyellow;
+    z-index: 2;
+}
+#hide{
+    visibility: hidden;
+    width: 10px;
+    height: 4.5px;
+}

@@ -1,0 +1,162 @@
+* {
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+
+.main_container {
+    display: flex;
+    width: 100%;
+    /* position: relative; */
+}
+
+.admin_nav {
+    position: fixed;
+    background-color: #5A7A74;
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    z-index: 2;
+}
+
+.container {
+    /* margin-top: 12%; */
+    margin-left: 22%;
+    margin-right: 15px;
+    width: auto;
+    text-align: justify;
+    min-height: 90vh;
+}
+
+.admin_nav_menu {
+    margin: 20px auto;
+    list-style: none;
+}
+
+.admin_nav_item {
+    line-height: 40px;
+    padding: 5px 20px;
+    text-align: left;
+    display: flex;
+}
+
+.admin_nav_item i {
+    line-height: 40px;
+    width: 40px;
+    height: 40px;
+}
+
+.admin_nav_item li {
+    width: 80%;
+    color: #e9ecef;
+    text-decoration: none;
+}
+
+.admin_nav_menu a {
+    text-decoration: none;
+}
+
+.admin_nav_item:hover {
+    background-color: black;
+}
+
+table,
+tr,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    color: black;
+    margin: 0 0 0 0;
+}
+
+th,
+td {
+    padding: 5px 10px;
+    /* height: max-content; */
+    width: auto;
+    /* max-width: 150%; */
+    /* word-wrap: break-word; */
+}
+th {
+    background-color: chocolate;
+    color: white;
+    border: 1px solid black;
+    text-align: center;
+}
+
+
+/* table{
+    margin: 30px 0px;
+} */
+
+.info {
+    margin-top: 30px;
+    background-color: #d4d0dd;
+    padding: 30px 20px;
+    border-radius: 10px;
+    line-height: 30px;
+    color: black;
+    width: 90%;
+}
+
+.info b {
+    color: black;
+}
+
+.danger_btn {
+    background-color: #e63946;
+    color: white;
+    padding: 5px 10px;
+    margin-top: 4%;
+    text-decoration: none;
+    height: auto;
+    width: auto;
+}
+
+.primary_btn {
+    background-color: green;
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+    height: auto;
+    width: auto;
+}
+
+.form {
+    height: auto;
+    width: 50%;
+    border: 5px solid blue;
+    color: blue;
+}
+
+form label {
+    color: blue;
+    margin: 1% 0px 0px 2%;
+    font-size: 16px;
+}
+
+input {
+    color: blue;
+    margin-left: 2%;
+    margin-bottom: 1%;
+    width: 50%;
+    height: 20px;
+}
+
+form textarea {
+    margin-left: 2%;
+    resize: none;
+    color: blue;
+}
+td a {
+    text-decoration: none;
+    color:black;
+}
+
+caption{
+    color:red;
+    font-size: larger;
+    font-weight: bolder;
+    /* margin:2%; */
+}
