@@ -83,6 +83,34 @@ body {
     text-align: center;
 }
 
+.bike-booked-low {
+    background-color: #2f84d3;
+    border-radius: 10px;
+    height: 90%;
+    width: 90%;
+    cursor: pointer;
+    text-align: center;
+}
+
+.bike-booked-medium {
+    background-color: #c7e739;
+    border-radius: 10px;
+    height: 90%;
+    width: 90%;
+    cursor: pointer;
+    text-align: center;
+}
+
+.bike-booked-high {
+    background-color: #ec5109;
+    border-radius: 10px;
+    height: 90%;
+    width: 90%;
+    cursor: pointer;
+    text-align: center;
+}
+
+
 .bike-booked {
     background-color: red;
     border-radius: 10px;
@@ -101,6 +129,34 @@ body {
     text-align: center;
 }
 
+.car-booked-low {
+    background-color: #2f84d3;
+    border-radius: 10px;
+    height: 90%;
+    width: 90%;
+    cursor: pointer;
+    text-align: center;
+}
+
+.car-booked-medium {
+    background-color: #c7e739;
+    border-radius: 10px;
+    height: 90%;
+    width: 90%;
+    cursor: pointer;
+    text-align: center;
+}
+
+.car-booked-high {
+    background-color: #ec5109;
+    border-radius: 10px;
+    height: 90%;
+    width: 90%;
+    cursor: pointer;
+    text-align: center;
+}
+
+
 .car-booked {
     background-color: red;
     border-radius: 10px;
@@ -118,12 +174,12 @@ body {
     background: repeating-linear-gradient( 45deg, black, black 10px, white 10px, white 20px);
 }
 
-.bike:hover {
+.bike:hover,.bike-booked-low:hover,.bike-booked-medium:hover,.bike-booked-high:hover {
     transform: scale(1.1);
     transition: .5ms;
 }
 
-.car:hover {
+.car:hover,.car-booked-low:hover,.car-booked-medium:hover,.car-booked-high:hover {
     transform: scale(1.1);
     transition: .5ms;
 }

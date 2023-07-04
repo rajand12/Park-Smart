@@ -1,8 +1,8 @@
-const bike = document.querySelectorAll('.bike');
+const bike = document.querySelectorAll(".bike, .bike-booked-low, .bike-booked-medium, .bike-booked-high");
 
 bike.forEach(el => el.addEventListener('click', event => {
     var x = event.target.getAttribute("id");
-    var y = event.target.getAttribute("class");
+    var y = "bike";
     // document.getElementById("form").style.display = "block";
     // document.getElementsByClassName('main-div')[0].style.display = 'none';
     // document.getElementById('selected_slot').value = x;
@@ -12,11 +12,11 @@ bike.forEach(el => el.addEventListener('click', event => {
 }));
 
 
-const car = document.querySelectorAll('.car');
+const car = document.querySelectorAll(".car.car-booked-low.car-booked-medium.car-booked-high");
 
 car.forEach(el => el.addEventListener('click', event => {
     var x = event.target.getAttribute("id");
-    var y = event.target.getAttribute("class");
+    var y = "car";
     // document.getElementById("form").style.display = "block";
     // document.getElementsByClassName('main-div')[0].style.display = 'none';
     // document.getElementById('selected_slot').value = x;

@@ -5,8 +5,6 @@
     if(!isset($_SESSION['admin_details'])){
         header('location:login.php');
     }
-    $sql = "DELETE from `booking_table` where `payment_status`=0 and `booking_status`=0";
-    mysqli_query($conn,$sql);
 ?>
 
 <div class="main_container">

@@ -4,16 +4,32 @@ session_start();
 if (!isset($_SESSION['admin_details'])) {
     header('location:login.php');
 }
-$query = "SELECT * from `booking_table` where `payment_status`= 0";
+$date = date("Y-m-d");
+$query = "SELECT * from `booking_table` where `payment_status`= 0 AND `booked_date`='$date'";
 $query_result = mysqli_query($conn, $query);
-$query2 = "SELECT * from `booking_table` where `payment_status`= 1";
+$query2 = "SELECT * from `booking_table` where `payment_status`= 1 AND `booked_date` = '$date'";
 $query_result2 = mysqli_query($conn, $query2);
+$query3 = 'SELECT SUM(price) as total_price from `booking_table` where `booked_date`= "'.$date.'" ';
+// echo $query3;
+// exit();
+$query_result3 = mysqli_query($conn, $query3);
 $i = 1;
+
+
 ?>
 <div class="main_container">
     <?php require_once 'admin-nav.php'; ?>
     <div class="container">
         <div class="info">
+
+        
+        <p style="color:green;font-size:20px;">Total revenue from bookings today =  
+        <?php 
+        while($tp = mysqli_fetch_assoc($query_result3)){
+            echo $tp['total_price'];
+            
+        } ?></p>
+            
 
         <table>
             <caption>Booking Without Payment</caption>
@@ -28,9 +44,15 @@ $i = 1;
                 <th>Price</th>
 
             </tr>
-            <?php
+            <?php if(mysqli_num_rows($query_result)==NULL) { ?>
 
-            while ($query_row = mysqli_fetch_array($query_result)) {
+            <td colspan= 8 >No Bookings made today</td>
+
+            <?php } else{
+
+             
+
+            while ($query_row = mysqli_fetch_assoc($query_result)) {
 
             ?>
                 <tr>
@@ -46,6 +68,7 @@ $i = 1;
             <?php
                 $i++;
             }
+        }
 
             ?>
         </table>
@@ -63,7 +86,11 @@ $i = 1;
                 <th>Price</th>
 
             </tr>
-            <?php
+
+            <?php if(mysqli_num_rows($query_result2)==NULL){?>
+
+            <td colspan= 8 >No Bookings made today</td>
+            <?php } else{
 
             while ($query_row2 = mysqli_fetch_array($query_result2)) {
 
@@ -82,7 +109,7 @@ $i = 1;
             <?php
                 $i++;
             }
-
+        }
             $conn->close();
 
             ?>

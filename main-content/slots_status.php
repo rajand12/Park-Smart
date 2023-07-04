@@ -15,7 +15,7 @@
 
                     <th>Slot Name</th>
                     <th>Slot Status</th>
-                    <th colspan="2">Actions</th>
+                    <th>Action</th>
                 </tr>
                 <?php
                 include "database_configuration.php";
@@ -38,8 +38,16 @@
                         ?></td>
                     
                     <p id="message"></p>
-                    <td><button class="danger_btn" onclick="makeUnavailable(<?= $id ?>)">Make Unavialble</a></button></td>
-                        <td><button class="primary_btn" onclick="makeAvailable(<?= $id ?>)">Make Available</a></button></td>
+                    <td>
+                    <?php if($status==0){ ?>    
+                    <button class="danger_btn" onclick="makeUnavailable(<?= $id ?>)">Make Unavialble</a></button>
+
+                    <?php } 
+
+                     else { ?>
+                        <button class="primary_btn" onclick="makeAvailable(<?= $id ?>)">Make Available</a></button></td>
+
+                        <?php } ?>
                         
                         </tr>
                 <?php

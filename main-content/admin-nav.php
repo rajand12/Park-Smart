@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/admin-style.css">
     <link rel="shortcut icon" href="../Images/logo.png" type="image/x-icon">
+    
     <script src="https://kit.fontawesome.com/c45811900b.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <title>Admin Dashboard</title>
 </head>
 <body>
@@ -36,7 +39,19 @@
         <a href="admin-report.php" class="admin_nav_link">
             <div class="admin_nav_item">
                 <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                <li>Booking Report</li>
+                <li>Today's Booking Report</li>
+            </div>
+        </a>
+        <a href="date-wise-report.php" class="admin_nav_link">
+            <div class="admin_nav_item">
+                <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+                <li>Date-wise report</li>
+            </div>
+        </a>
+        <a href="predict_booking.php" class="admin_nav_link">
+            <div class="admin_nav_item">
+            <i class="fa-solid fa-layer-group"></i>
+                <li>Predict Bookings</li>
             </div>
         </a>
         <a href="cancelled-booking.php" class="admin_nav_link">
