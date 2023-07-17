@@ -12,7 +12,7 @@ bike.forEach(el => el.addEventListener('click', event => {
 }));
 
 
-const car = document.querySelectorAll(".car.car-booked-low.car-booked-medium.car-booked-high");
+const car = document.querySelectorAll(".car, .car-booked-low, .car-booked-medium, .car-booked-high");
 
 car.forEach(el => el.addEventListener('click', event => {
     var x = event.target.getAttribute("id");

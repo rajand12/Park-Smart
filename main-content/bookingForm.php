@@ -172,7 +172,7 @@ header("location:http://localhost/Park-Smart/main-content/booking_method.php");
       <input type="hidden" id="selected_slot" name="selected_slot" value="<?= $id ?>" >
       <label for="rate">Rate (Per 30 minutes)</label>
       <br>
-      <span>Subject to change as per demand</span>
+      <p>Subject to change as per demand</p>
       <input type="number" id="rate" name="rate" id="rate" value="<?= $new_rate ?>" readonly>
       <label for="vehicle_no">Vehicle No.</label>
       <input type="number" name="vehicle_no" id="vehicle_no" required>

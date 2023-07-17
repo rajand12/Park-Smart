@@ -93,7 +93,7 @@ body {
 }
 
 .bike-booked-medium {
-    background-color: #c7e739;
+    background-color: yellow;
     border-radius: 10px;
     height: 90%;
     width: 90%;
@@ -102,7 +102,7 @@ body {
 }
 
 .bike-booked-high {
-    background-color: #ec5109;
+    background-color: orange;
     border-radius: 10px;
     height: 90%;
     width: 90%;
@@ -139,7 +139,7 @@ body {
 }
 
 .car-booked-medium {
-    background-color: #c7e739;
+    background-color: yellow;
     border-radius: 10px;
     height: 90%;
     width: 90%;
@@ -148,7 +148,7 @@ body {
 }
 
 .car-booked-high {
-    background-color: #ec5109;
+    background-color: orange;
     border-radius: 10px;
     height: 90%;
     width: 90%;
@@ -233,4 +233,50 @@ a {
     visibility: hidden;
     width: 10px;
     height: 4.5px;
+}
+
+.legend {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .color {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
+  
+  .min-booked {
+    background-color: #2f84d3;
+  }
+  
+  .medium-booked {
+    background-color: yellow;
+  }
+  
+  .highly-booked {
+    background-color: orange;
+  }
+  .none-booked{
+    background-color: #14ed59;
+
+  }
+  .booked{
+    background-color: red;
+  }
+.legend{
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+}
+span{
+    font-size: large;
+    color: rgb(153, 235, 228);
 }

@@ -84,7 +84,29 @@ else{
       </div>
     </nav>
     <div class="center-main-div">
-      <div class="main-div">
+      <div class="legend">
+        <div class="legend-item">
+          <div class="color none-booked"></div>
+          <span>Not Booked</span>
+        </div>
+        <div class="legend-item">
+          <div class="color min-booked"></div>
+          <span>Booked Minimun</span>
+        </div>
+        <div class="legend-item">
+    <div class="color medium-booked"></div>
+    <span>Booked Medium</span>
+  </div>
+  <div class="legend-item">
+    <div class="color highly-booked"></div>
+    <span>Highly Booked</span>
+  </div>
+  <div class="legend-item">
+    <div class="color booked"></div>
+    <span>Not Available</span>
+  </div>
+</div>
+<div class="main-div">
         <div class="bike-row">
           <div class="text"><i class="fa fa-motorcycle" aria-hidden="true"></i></div>
           <?php
