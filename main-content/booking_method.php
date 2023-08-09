@@ -6,8 +6,8 @@ if (!isset($_SESSION['user_details'])) {
   } else { }  
   ?>
   <?php
-    // $payment_request_id = "PRID-" . rand(1, 1000000);
-    // $_SESSION['pri'] = $payment_request_id;
+    $payment_request_id = "PRID-" . rand(1, 1000000);
+    $_SESSION['pri'] = $payment_request_id;
 if (isset($_POST["moneyless"])) {
     $sql2 = "INSERT INTO `booking_table` (`slot_id`,`slot_name`,`user_id`,`full_name`,`vehicle_no`,`booked_date`,`arrival_time`,`departure_time`,`price`) 
     VALUES (" . $_SESSION['slot_id'] . ",'" . $_SESSION['slot_name'] . "'," . $_SESSION['user_details']['user_id'] . ",'" . $_SESSION['user_details']['full_name'] . "','" . $_SESSION['vehicle_num'] . "','" . $_SESSION['date'] . "','" . $_SESSION['arrival_time'] . "','" . $_SESSION['departure_time'] . "','" . $_SESSION['price'] . "');";
@@ -18,9 +18,7 @@ if (isset($_POST["moneyless"])) {
     
     
 } if(isset($_POST["withmoney"])) {
-    // echo 'this fasd';
-    $payment_request_id = "PRID-" . rand(1, 1000000);
-    $_SESSION['pri'] = $payment_request_id;
+    
     $sql = "INSERT INTO `booking_table` (`slot_id`,`slot_name`,`user_id`,`full_name`,`vehicle_no`,`booked_date`,`arrival_time`,`departure_time`,`price`,`payment_request_id`) 
       VALUES (" . $_SESSION['slot_id'] . ",'" . $_SESSION['slot_name'] . "'," . $_SESSION['user_details']['user_id'] . ",'" . $_SESSION['user_details']['full_name'] . "','" . $_SESSION['vehicle_num'] . "','" . $_SESSION['date'] . "','" . $_SESSION['arrival_time'] . "','" . $_SESSION['departure_time'] . "','" . $_SESSION['price'] . "','" . $payment_request_id . "');";
     mysqli_query($conn, $sql);

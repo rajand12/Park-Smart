@@ -1,5 +1,10 @@
 <?php
 session_start();
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+require './PHPMailer/src/Exception.php';
+require './PHPMailer/src/PHPMailer.php';
+require './PHPMailer/src/SMTP.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,8 +13,11 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking Report</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
     <style>
-    div {
+      
+    #main {
         background-color: lightgrey;
         width: 20%;
         border: 7px green;
@@ -48,7 +56,8 @@ body {
 </style>
 </head>
 <body>
-<div>
+<div id="main">
+  <div id="print">
 <h4>Name:  <i><?= $_SESSION['user_details']['full_name']?></i></h4>
 <h4>Email:  <i><?= $_SESSION['user_details']['email']?></i></h4>
 <h4>Date:  <i><?= $_SESSION['date']?></i></h4>
@@ -59,12 +68,53 @@ body {
 <h4>Price:  <i><?= $_SESSION['price']?></i></h4>
 <h4>Mode of Payment:  <i>Cash on checkout</i></h4>
 
-<button onclick="window.print();return false;">Save as PDF</button>
+      </div>
+
+<?php
+
+$name = htmlentities("ParkSmart");
+$email = htmlentities($_SESSION['user_details']['email']);
+$subject = htmlentities("Parking Slot Booked");
+$body = htmlentities("Hello user.
+                      You have booked the parking slot  "  . $_SESSION['slot_name']. ' from   ' . $_SESSION['arrival_time']. ' to  '. $_SESSION['departure_time']
+                      . '     Thank you'
+                    );    
+$mail = new PHPMailer(true);
+$mail->isSMTP();
+$mail->Host = 'smtp.gmail.com';
+$mail->SMTPAuth = true;
+$mail->Username = 'parksmart121@gmail.com';
+$mail->Password = 'smnnzezbarhqpvxt';
+$mail->Port = 465;
+$mail->SMTPSecure = 'ssl';
+$mail->isHTML(true);
+$mail->setFrom($email, $name);
+$mail->addAddress($email);
+$mail->Subject = ("$subject");
+$mail->Body = $body;
+$mail->send();
+
+?>
+
+<button id="printButton">Save as PDF</button>
 <br>
 <a href="http://localhost/Park-Smart/main-content/after-login.php">Return to Home</a>
 </div>
 
+<script>
+        document.getElementById("printButton").addEventListener("click", function() {
+            var contentToPrint = document.getElementById("print"); // Select the specific section to print
+            var originalContents = document.body.innerHTML; // Save the original page contents
+            
+            document.body.innerHTML = contentToPrint.innerHTML; // Set the body to the content you want to print
+            window.print(); // Print the page
+            
+            document.body.innerHTML = originalContents; // Restore the original page contents
+        });
+    </script>
+
 </body>
+
 </html>
 
 <!-- <?php 

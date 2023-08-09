@@ -9,7 +9,7 @@ $error_message = "";
 include "database_configuration.php";
 if($_POST){
         $fullName = $_REQUEST['full-name'];
-        $email = $_REQUEST['email'];
+        $user_email = $_REQUEST['email'];
         $contact = $_REQUEST['contact'];
         $userName = $_REQUEST['user-name'];
         $password = $_REQUEST['password'];
@@ -21,29 +21,30 @@ if($_POST){
             $error_message = "User name already exist try another";
         }
         else{
-            $createUser = "INSERT into `user_details` (`full_name`,`email`,`contact`,`user_name`,`password`) VALUES ('$fullName','$email','$contact','$userName','$hashedPassword')";
+            $createUser = "INSERT into `user_details` (`full_name`,`email`,`contact`,`user_name`,`password`) VALUES ('$fullName','$user_email','$contact','$userName','$hashedPassword')";
             if(mysqli_query($conn,$createUser)){
                 $message = ("User created successfully");
-
+                $name = htmlentities("ParkSmart");
+                $email = htmlentities($user_email);
+                $subject = htmlentities("Registered to ParkSmart");
+                $body = htmlentities("Welcome to ParkSmart.
+                                    You have used this email to register to ParkSmart.
+                                    Thankyou");    
+                $mail = new PHPMailer(true);
+                $mail->isSMTP();
+                $mail->Host = 'smtp.gmail.com';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'parksmart121@gmail.com';
+                $mail->Password = 'smnnzezbarhqpvxt';
+                $mail->Port = 465;
+                $mail->SMTPSecure = 'ssl';
+                $mail->isHTML(true);
+                $mail->setFrom($email, $name);
+                $mail->addAddress($email);
+                $mail->Subject = ("$subject");
+                $mail->Body = $body;
+                $mail->send();
                 
-                // $name = htmlentities("ParkSmart");
-                // $email = htmlentities($email);
-                // $subject = htmlentities("Registered to ParkSmart");
-                // $body = htmlentities("Hello"." ".$userName." Welcome to ParkSmart. You have used this email to register to ParkSmart.");    
-                // $mail->isSMTP();
-                // $mail = new PHPMailer(true);
-                // $mail->Host = 'smtp.gmail.com';
-                // $mail->SMTPAuth = true;
-                // $mail->Username = 'parksmart121@gmail.com';
-                // $mail->Password = 'smnnzezbarhqpvxt';
-                // $mail->Port = 465;
-                // $mail->SMTPSecure = 'ssl';
-                // $mail->isHTML(true);
-                // $mail->setFrom($email, $name);
-                // $mail->addAddress('parksmart121@gmail.com');
-                // $mail->Subject = ("$email ($subject)");
-                // $mail->Body = $body;
-                // $mail->send();
             }
             else{
                 $error_message = "Couldn't create user";

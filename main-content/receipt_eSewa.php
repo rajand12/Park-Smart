@@ -1,5 +1,10 @@
 <?php
 session_start();
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+require './PHPMailer/src/Exception.php';
+require './PHPMailer/src/PHPMailer.php';
+require './PHPMailer/src/SMTP.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,6 +63,32 @@ body {
 <h3>Booked Slot:  <i><?=$_SESSION['slot_name']?></i></h3>
 <h3>Price:  <i><?= $_SESSION['price']?></i></h3>
 <h3>Mode of Payment:  <i>Paid through eSewa</i></h3>
+
+<?php  
+
+$name = htmlentities("ParkSmart");
+$email = htmlentities($_SESSION['user_details']['email']);
+$subject = htmlentities("Parking Slot Booked");
+$body = htmlentities("Hello user.
+                      You have booked the parking slot " .$_SESSION['slot_name'] ' from '.$_SESSION['arrival_time'].' to'.$_SESSION['departure_time']
+                      .'Thank you'
+                    );    
+$mail = new PHPMailer(true);
+$mail->isSMTP();
+$mail->Host = 'smtp.gmail.com';
+$mail->SMTPAuth = true;
+$mail->Username = 'parksmart121@gmail.com';
+$mail->Password = 'smnnzezbarhqpvxt';
+$mail->Port = 465;
+$mail->SMTPSecure = 'ssl';
+$mail->isHTML(true);
+$mail->setFrom($email, $name);
+$mail->addAddress($email);
+$mail->Subject = ("$subject");
+$mail->Body = $body;
+$mail->send();
+
+?>
 
 <button onclick="window.print();return false;">Save as PDF</button>
 <br>
