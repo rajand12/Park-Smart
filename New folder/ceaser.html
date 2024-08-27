@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function encrypt(message, shift){
+    var result = "";
+
+    for(var i = 0; i<message.length; i++){
+        // console.log(message.length);
+        var char = message[i];
+
+        //Encrypt uppercase letters
+        if(char.match(/[A-Z]/)){
+            var code = ((char.charCodeAt(0) - 65 + shift) % 26) + 65;
+            result += String.fromCharCode(code);
+        }
+
+        //Encrypt lowercase letters
+        else if(char.match(/[a-z]/)){
+            var code = ((char.charCodeAt(0) - 97 + shift) % 26) + 97;
+            result += String.fromCharCode(code);
+        }
+
+        //keep non-alphabetic charcters as it is
+        else{
+            result += char;
+        }
+
+    }
+    return result;
+}
+function decrypt(message, shift){
+    shift = 26 - shift;
+    return encrypt(message, shift);
+}
+
+var message = "Rajan Dotel";
+var shift = 3;
+console.log("Original Message: " + message);
+var result = encrypt(message,shift);
+console.log("Encrypted Message: " + result);
+console.log(decrypt(result,shift));
+</script>
+</html>

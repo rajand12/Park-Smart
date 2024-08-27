@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Railfence Cipher</title>
+  </head>
+  <body></body>
+  <script>
+    // Function to encrypt a message using the Rail Fence cipher
+    function railFenceCipherEncrypt(message, rails) {
+      var encryptedMessage = "";
+
+      // Create an array of strings to represent each rail
+      var fence = [];
+      for (var i = 0; i < rails; i++) {
+        fence.push("");
+      }
+
+      var rail = 0;
+      var direction = 1;
+
+      // Iterate through each character in the message
+      for (var j = 0; j < message.length; j++) {
+        fence[rail] += message[j];
+
+        // Update the rail and direction
+        rail += direction;
+
+        // Change direction if reaching the top or bottom rail
+        if (rail === 0 || rail === rails - 1) {
+          direction *= -1;
+        }
+      }
+
+      // Concatenate all the strings in the fence array
+      for (var k = 0; k < fence.length; k++) {
+        encryptedMessage += fence[k];
+      }
+
+      return encryptedMessage;
+    }
+
+    // Function to decrypt a message using the Rail Fence cipher
+    function railFenceCipherDecrypt(message, rails) {
+      var decryptedMessage = "";
+
+      // Create an array of strings to represent each rail
+      var fence = [];
+      for (var i = 0; i < rails; i++) {
+        fence.push("");
+      }
+
+      var rail = 0;
+      var direction = 1;
+
+      // Calculate the length of each rail
+      var railLengths = [];
+      for (var j = 0; j < message.length; j++) {
+        railLengths[rail] = (railLengths[rail] || 0) + 1;
+        rail += direction;
+
+        // Change direction if reaching the top or bottom rail
+        if (rail === 0 || rail === rails - 1) {
+          direction *= -1;
+        }
+      }
+
+      // Divide the message into segments based on rail lengths
+      var segments = [];
+      var start = 0;
+      for (var k = 0; k < railLengths.length; k++) {
+        var length = railLengths[k];
+        segments.push(message.substr(start, length));
+        start += length;
+      }
+
+      rail = 0;
+      direction = 1;
+
+      // Iterate through each character in the message
+      for (var m = 0; m < message.length; m++) {
+        // Take the next character from the current rail segment
+        var nextChar = segments[rail].charAt(0);
+        segments[rail] = segments[rail].substr(1);
+
+        decryptedMessage += nextChar;
+
+        // Update the rail and direction
+        rail += direction;
+
+        // Change direction if reaching the top or bottom rail
+        if (rail === 0 || rail === rails - 1) {
+          direction *= -1;
+        }
+      }
+
+      return decryptedMessage;
+    }
+
+    // Example usage:
+    var message = "HELLO, WORLD!";
+    var rails = 3;
+
+    var encryptedMessage = railFenceCipherEncrypt(message, rails);
+    console.log("Encrypted message:", encryptedMessage);
+
+    var decryptedMessage = railFenceCipherDecrypt(encryptedMessage, rails);
+    console.log("Decrypted message:", decryptedMessage);
+  </script>
+</html>

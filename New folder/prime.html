@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //Function to check if a number is prime or not 
+    function isPrime(number){
+        if(number < 2){
+            return false;
+        }
+        //check if the number is divisible by an integer from 2 to the square root of the number
+        for(var i = 2; i <= Math.sqrt(number); i++){
+            if(number %i === 0){
+                return false;
+            }
+        }
+        //if no divisor is found, the number is prime
+        return true;
+    }
+
+    var number = 37;
+    console.log(number + " is Prime ?  " + isPrime(number));
+
+    number = 100;
+    console.log(number + " is Prime ?  " + isPrime(number));
+</script>
+</html>

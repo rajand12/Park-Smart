@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    
+</body>
+<script>
+    const roles = {
+        admin : ['create','read','update','delete'],
+        editor : ['create','read','update'],
+        guest : ['read'],
+    };
+
+    const users = [
+        {username:"Aman", role:"admin"},
+        {username:"Rajan", role:"editor"},
+        {username:"Suraj", role:"guest"},
+    ];
+
+    function hasPermission(userRole, action){
+        if(!roles[userRole]){
+            return false;
+        }
+        return roles[userRole].includes(action);
+    }
+
+    function authorize(user, action){
+        const {username, role} = user;
+
+        if(hasPermission(role,action)){
+            console.log(`User '${username}' is authorized to '${action}'.`);
+        }
+        else{
+            console.log(`User '${username}' is not authorized to '${action}'.`);
+        }
+    }
+
+    authorize(users[0],'create');
+    authorize(users[1],'delete');
+    authorize(users[2],'read');
+
+</script>
+</html>

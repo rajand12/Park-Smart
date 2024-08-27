@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //function to find the gcd using the Euclidean algorithm 
+    function gcd(a,b){
+        //Ensure a is greater than or equal to b
+        if(b > a){
+            [a,b] = [b,a];
+        }
+
+        while(b !== 0){
+            var remainder = a % b;
+            a = b;
+            b = remainder;
+        }
+
+        return a;
+    }
+    //Example usage
+    var num1 = 54;
+    var num2 = 24;
+
+        console.log("The gcd among " + num1 + " and " + num2 + " is " + gcd(num1,num2));
+</script>
+</html>

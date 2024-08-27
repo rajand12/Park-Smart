@@ -1,0 +1,34 @@
+<!-- Note: Include theory and output in your lab report.
+1. Write a program to check for suspicious file extensions.
+Instruction: While checking an output, once enter a filename stored in your PC with extension
+(i.e. information security.docx) and check output. Secondly, enter a filename that is not available
+(i.e. imaginary) in your PC and check output. Then write an output accordingly. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Define the function
+      function checkFileExtension(filename) {
+        const suspiciousExtensions = [".exe", ".bat", ".vbs", ".js"];
+        // Get the file extension (including the dot)
+        const fileExtension = filename
+          .slice(filename.lastIndexOf("."))
+          .toLowerCase();
+        // Check if the extension is in the list of suspicious extensions
+        return suspiciousExtensions.includes(fileExtension);
+      }
+      // Example usage
+      const userInput = prompt("Enter the filename:");
+      if (checkFileExtension(userInput)) {
+        console.log("Suspicious file extension detected!");
+      } else {
+        console.log("File extension appears to be safe.");
+      }
+    </script>
+  </body>
+</html>

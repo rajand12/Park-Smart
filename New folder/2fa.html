@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    const storedUsername = "rajan";
+    const storedPassword = "maharaja";
+
+    function authenticate(username, password) {
+      if (username === storedUsername && password === storedPassword) {
+        return true;
+      }
+      return false;
+    }
+
+    function generateCode() {
+      return Math.floor(100000 + Math.random() * 900000);
+    }
+
+    const username = prompt("Enter your username: ");
+    const password = prompt("Enter your password: ");
+
+    if (authenticate(username, password)) {
+      const code = generateCode();
+      alert(`Your authentication code is: ${code}`);
+      
+      const enteredCode = prompt("Enter the code: ");
+      if (parseInt(enteredCode, 10) === code) {
+        alert("Authentication successful!");
+      } else {
+        alert("Authentication failed! Incorrect code.");
+      }
+    } else {
+      alert("Authentication failed! Incorrect username or password.");
+    }
+  </script>
+</html>
